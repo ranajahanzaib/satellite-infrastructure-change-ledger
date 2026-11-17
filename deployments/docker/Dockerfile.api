@@ -1,0 +1,18 @@
+# Go REST API Dockerfile
+FROM golang:1.22-alpine AS builder
+
+WORKDIR /app
+COPY services/api/go.mod ./
+# If go.sum exists copy it
+COPY services/api/ ./
+RUN go build -o /app/bin/server ./cmd/server
+
+FROM alpine:3.19
+RUN apk --no-cache add ca-certificates tzdata
+WORKDIR /app
+COPY --from=builder /app/bin/server /app/server
+COPY data/samples /app/data/samples
+
+EXPOSE 8080
+ENV PORT=8080
+CMD ["/app/server"]
