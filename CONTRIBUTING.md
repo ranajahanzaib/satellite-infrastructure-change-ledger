@@ -1,46 +1,62 @@
-## Contributing
+# Contributing to satellite-infrastructure-change-ledger
 
-We welcome contributions of all kinds to improve this project! Here's how you can get involved:
+We welcome contributions of all kinds to improve the platform! Here is how to get started:
 
-1. **Fork the Repository**: Start by forking the repository to your GitHub account.
+---
 
-2. **Clone Your Fork**: Clone the forked repository to your local machine:
+## Development Workflow
 
-   ```bash
-   git clone <repo_url>
-   cd repo_dir
-   ```
-
-3. **Create a Branch**: Create a new branch for your feature or bug fix:
+1. **Fork and Clone**:
 
    ```bash
-   git checkout -b feature-name
+   git clone https://github.com/your-username/satellite-infrastructure-change-ledger.git
+   cd satellite-infrastructure-change-ledger
    ```
 
-4. **Make Changes**: Make your changes to the codebase. Be sure to follow existing code style and conventions.
-
-5. **Commit Changes**: Commit your changes with a clear and descriptive message:
+2. **Setup Local Environment**:
 
    ```bash
-   git commit -m "Add detailed description of the changes"
+   cp .env.example .env
+   make setup
    ```
 
-6. **Push Changes**: Push your changes to your fork:
+3. **Create a Feature Branch**:
 
    ```bash
-   git push origin feature-name
+   git checkout -b feature/your-feature-name
    ```
 
-7. **Submit a Pull Request**: Open a pull request from your branch to the main repository's branch. Include a detailed description of your changes and the problem they solve.
+4. **Run Tests & Linters**:
+   Before submitting changes, ensure all automated tests and linters pass:
 
-8. **Review and Feedback**: Participate in the review process. Make any requested changes, and your contribution will be merged!
+   ```bash
+   # Run both Go API and Python processing tests
+   make test
 
-### Guidelines
+   # Run TypeScript and Go linters
+   make lint
 
-- Ensure your code follows the existing style and conventions.
-- Include tests for any new functionality or bug fixes.
-- Write clear, concise commit messages and pull request descriptions.
+   # Run the end-to-end demonstration scenario
+   make demo
+   ```
 
-### Issues
+5. **Submit a Pull Request**:
+   Commit your changes with concise, descriptive messages and open a pull request against the `main` branch.
 
-Feel free to report bugs or suggest enhancements by creating an issue. Be sure to include detailed information about the problem and, if possible, steps to reproduce it.
+---
+
+## Contribution Guidelines
+
+- **Real Functionality**: Ensure every new UI action, API endpoint, or processing step is backed by working code, not placeholders.
+- **Traceability**: Changes to the ledger or candidate scoring should preserve data provenance and audit revisions.
+- **Test Coverage**: Accompany any new Go backend endpoints or Python geospatial pipelines with automated tests in `services/api/tests/` and `services/processing/tests/`.
+- **Code Style**:
+  - Go: formatted with standard `gofmt` and checked with `go vet`.
+  - Python: follow PEP 8 and use type hints.
+  - TypeScript / React: pass `pnpm lint` (`tsc --noEmit`).
+
+---
+
+## Code of Conduct
+
+This project adheres to the [Contributor Covenant Code of Conduct](./CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code.
