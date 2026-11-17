@@ -72,3 +72,20 @@ yarn-error.log*
 
 # Python
 venv
+
+
+PLAN.md
+
+# Python virtual environments & caches
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Go binaries
+services/api/bin/
+
+# Frontend builds
+apps/web/dist/
+
+.pnpm-store

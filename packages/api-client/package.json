@@ -1,0 +1,9 @@
+{
+  "name": "@satledger/api-client",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@satledger/shared-types": "workspace:*"
+  }
+}
