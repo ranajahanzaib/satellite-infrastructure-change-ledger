@@ -1,0 +1,538 @@
+{
+  "status": "completed",
+  "job_id": "job-1794916318",
+  "area_id": "area-apex-park-01",
+  "processing_duration_seconds": 0.129,
+  "alignment": {
+    "overlap_pct": 100.0,
+    "common_bounds": [-122.445, 37.765, -122.415, 37.785],
+    "common_dimensions": [256, 256],
+    "target_resolution": [0.00011718749999994893, 7.812499999998446e-5],
+    "crs_match": true,
+    "reliable": true
+  },
+  "summary": {
+    "total_candidates": 5,
+    "high_confidence_count": 0,
+    "medium_confidence_count": 5,
+    "low_confidence_count": 0,
+    "new_construction_count": 5,
+    "mean_embedding_distance": 0.023,
+    "t1_date": "2016-08-15",
+    "t2_date": "2021-07-10"
+  },
+  "candidates": [
+    {
+      "candidate_id": "cand-ec4e116a521a",
+      "category": "new_construction",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.4237890625, 37.76890625],
+            [-122.4237890625, 37.77171875],
+            [-122.4291796875, 37.77171875],
+            [-122.4291796875, 37.76890625],
+            [-122.4237890625, 37.76890625]
+          ]
+        ]
+      },
+      "bbox": [-122.4291796875, 37.76890625, -122.4237890625, 37.77171875],
+      "centroid": [-122.426484375, 37.7703125],
+      "area_m2": 186562.5,
+      "score": 0.609,
+      "confidence_band": "medium",
+      "detection_method": "multi_stage_ensemble_v1",
+      "contributing_signals": {
+        "spectral_magnitude": 1.0,
+        "embedding_distance": 0.045,
+        "ndbi_built_signal": 0.662,
+        "spatial_compactness": 0.9,
+        "quality_index": 0.95
+      },
+      "requires_more_evidence": false,
+      "false_positive_risk": "low",
+      "risk_reasons": [],
+      "matched_entities": [
+        {
+          "entity": {
+            "entity_id": "osm-way-98432102",
+            "name": "Consolidated Freight Terminal 4",
+            "source": "openstreetmap",
+            "entity_type": "warehouse",
+            "wikidata_id": "Q115893241",
+            "osm_id": "way/98432102",
+            "wikipedia_title": null,
+            "bbox": [-122.435, 37.77, -122.425, 37.778],
+            "centroid": [-122.43, 37.774],
+            "tags": {
+              "building": "warehouse",
+              "logistics": "freight_terminal",
+              "height": "14"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 513.4,
+          "match_score": 0.795,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432101",
+            "name": "Apex Logistics & Industrial Park",
+            "source": "linked_osm_wikidata",
+            "entity_type": "industrial_park",
+            "wikidata_id": "Q115893240",
+            "osm_id": "way/98432101",
+            "wikipedia_title": "Apex_Industrial_Park",
+            "bbox": [-122.445, 37.765, -122.415, 37.785],
+            "centroid": [-122.43, 37.775],
+            "tags": {
+              "landuse": "industrial",
+              "industrial": "logistics",
+              "operator": "Apex Infrastructure Holdings",
+              "established": "2019"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 605.9,
+          "match_score": 0.758,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432103",
+            "name": "North Commercial Distribution Depot",
+            "source": "linked_osm_wikidata",
+            "entity_type": "logistics_center",
+            "wikidata_id": "Q115893242",
+            "osm_id": "way/98432103",
+            "wikipedia_title": null,
+            "bbox": [-122.428, 37.778, -122.418, 37.784],
+            "centroid": [-122.423, 37.781],
+            "tags": {
+              "building": "industrial",
+              "industrial": "warehouse"
+            }
+          },
+          "match_type": "centroid_proximity",
+          "distance_meters": 1227.2,
+          "match_score": 0.109,
+          "confidence": "low"
+        }
+      ],
+      "primary_entity": "Consolidated Freight Terminal 4"
+    },
+    {
+      "candidate_id": "cand-28a85a013ebf",
+      "category": "new_construction",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.423203125, 37.777499999999996],
+            [-122.423203125, 37.78109375],
+            [-122.4309375, 37.78109375],
+            [-122.4309375, 37.777499999999996],
+            [-122.423203125, 37.777499999999996]
+          ]
+        ]
+      },
+      "bbox": [-122.4309375, 37.777499999999996, -122.423203125, 37.78109375],
+      "centroid": [-122.4270703125, 37.779296875],
+      "area_m2": 337074.2,
+      "score": 0.604,
+      "confidence_band": "medium",
+      "detection_method": "multi_stage_ensemble_v1",
+      "contributing_signals": {
+        "spectral_magnitude": 1.0,
+        "embedding_distance": 0.049,
+        "ndbi_built_signal": 0.648,
+        "spatial_compactness": 0.887,
+        "quality_index": 0.95
+      },
+      "requires_more_evidence": false,
+      "false_positive_risk": "low",
+      "risk_reasons": [],
+      "matched_entities": [
+        {
+          "entity": {
+            "entity_id": "osm-way-98432103",
+            "name": "North Commercial Distribution Depot",
+            "source": "linked_osm_wikidata",
+            "entity_type": "logistics_center",
+            "wikidata_id": "Q115893242",
+            "osm_id": "way/98432103",
+            "wikipedia_title": null,
+            "bbox": [-122.428, 37.778, -122.418, 37.784],
+            "centroid": [-122.423, 37.781],
+            "tags": {
+              "building": "industrial",
+              "industrial": "warehouse"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 404.8,
+          "match_score": 0.838,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432101",
+            "name": "Apex Logistics & Industrial Park",
+            "source": "linked_osm_wikidata",
+            "entity_type": "industrial_park",
+            "wikidata_id": "Q115893240",
+            "osm_id": "way/98432101",
+            "wikipedia_title": "Apex_Industrial_Park",
+            "bbox": [-122.445, 37.765, -122.415, 37.785],
+            "centroid": [-122.43, 37.775],
+            "tags": {
+              "landuse": "industrial",
+              "industrial": "logistics",
+              "operator": "Apex Infrastructure Holdings",
+              "established": "2019"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 542.8,
+          "match_score": 0.783,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432102",
+            "name": "Consolidated Freight Terminal 4",
+            "source": "openstreetmap",
+            "entity_type": "warehouse",
+            "wikidata_id": "Q115893241",
+            "osm_id": "way/98432102",
+            "wikipedia_title": null,
+            "bbox": [-122.435, 37.77, -122.425, 37.778],
+            "centroid": [-122.43, 37.774],
+            "tags": {
+              "building": "warehouse",
+              "logistics": "freight_terminal",
+              "height": "14"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 642.8,
+          "match_score": 0.743,
+          "confidence": "medium"
+        }
+      ],
+      "primary_entity": "North Commercial Distribution Depot"
+    },
+    {
+      "candidate_id": "cand-1d6b04b6cb18",
+      "category": "new_construction",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.420859375, 37.777265625],
+            [-122.420859375, 37.778046875],
+            [-122.421328125, 37.778046875],
+            [-122.421328125, 37.777265625],
+            [-122.420859375, 37.777265625]
+          ]
+        ]
+      },
+      "bbox": [-122.421328125, 37.777265625, -122.420859375, 37.778046875],
+      "centroid": [-122.42109375000001, 37.77765625],
+      "area_m2": 4281.0,
+      "score": 0.59,
+      "confidence_band": "medium",
+      "detection_method": "multi_stage_ensemble_v1",
+      "contributing_signals": {
+        "spectral_magnitude": 0.954,
+        "embedding_distance": 0.04,
+        "ndbi_built_signal": 0.672,
+        "spatial_compactness": 0.855,
+        "quality_index": 0.95
+      },
+      "requires_more_evidence": false,
+      "false_positive_risk": "low",
+      "risk_reasons": [],
+      "matched_entities": [
+        {
+          "entity": {
+            "entity_id": "osm-way-98432103",
+            "name": "North Commercial Distribution Depot",
+            "source": "linked_osm_wikidata",
+            "entity_type": "logistics_center",
+            "wikidata_id": "Q115893242",
+            "osm_id": "way/98432103",
+            "wikipedia_title": null,
+            "bbox": [-122.428, 37.778, -122.418, 37.784],
+            "centroid": [-122.423, 37.781],
+            "tags": {
+              "building": "industrial",
+              "industrial": "warehouse"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 407.8,
+          "match_score": 0.837,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432101",
+            "name": "Apex Logistics & Industrial Park",
+            "source": "linked_osm_wikidata",
+            "entity_type": "industrial_park",
+            "wikidata_id": "Q115893240",
+            "osm_id": "way/98432101",
+            "wikipedia_title": "Apex_Industrial_Park",
+            "bbox": [-122.445, 37.765, -122.415, 37.785],
+            "centroid": [-122.43, 37.775],
+            "tags": {
+              "landuse": "industrial",
+              "industrial": "logistics",
+              "operator": "Apex Infrastructure Holdings",
+              "established": "2019"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 836.6,
+          "match_score": 0.665,
+          "confidence": "medium"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432102",
+            "name": "Consolidated Freight Terminal 4",
+            "source": "openstreetmap",
+            "entity_type": "warehouse",
+            "wikidata_id": "Q115893241",
+            "osm_id": "way/98432102",
+            "wikipedia_title": null,
+            "bbox": [-122.435, 37.77, -122.425, 37.778],
+            "centroid": [-122.43, 37.774],
+            "tags": {
+              "building": "warehouse",
+              "logistics": "freight_terminal",
+              "height": "14"
+            }
+          },
+          "match_type": "centroid_proximity",
+          "distance_meters": 882.1,
+          "match_score": 0.247,
+          "confidence": "low"
+        }
+      ],
+      "primary_entity": "North Commercial Distribution Depot"
+    },
+    {
+      "candidate_id": "cand-bd7ff232aad4",
+      "category": "new_construction",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.4237890625, 37.7728125],
+            [-122.4237890625, 37.776015625],
+            [-122.4303515625, 37.776015625],
+            [-122.4303515625, 37.7728125],
+            [-122.4237890625, 37.7728125]
+          ]
+        ]
+      },
+      "bbox": [-122.4303515625, 37.7728125, -122.4237890625, 37.776015625],
+      "centroid": [-122.4270703125, 37.7744140625],
+      "area_m2": 208981.5,
+      "score": 0.566,
+      "confidence_band": "medium",
+      "detection_method": "multi_stage_ensemble_v1",
+      "contributing_signals": {
+        "spectral_magnitude": 1.0,
+        "embedding_distance": 0.032,
+        "ndbi_built_signal": 0.645,
+        "spatial_compactness": 0.727,
+        "quality_index": 0.95
+      },
+      "requires_more_evidence": false,
+      "false_positive_risk": "low",
+      "risk_reasons": [],
+      "matched_entities": [
+        {
+          "entity": {
+            "entity_id": "osm-way-98432102",
+            "name": "Consolidated Freight Terminal 4",
+            "source": "openstreetmap",
+            "entity_type": "warehouse",
+            "wikidata_id": "Q115893241",
+            "osm_id": "way/98432102",
+            "wikipedia_title": null,
+            "bbox": [-122.435, 37.77, -122.425, 37.778],
+            "centroid": [-122.43, 37.774],
+            "tags": {
+              "building": "warehouse",
+              "logistics": "freight_terminal",
+              "height": "14"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 261.6,
+          "match_score": 0.895,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432101",
+            "name": "Apex Logistics & Industrial Park",
+            "source": "linked_osm_wikidata",
+            "entity_type": "industrial_park",
+            "wikidata_id": "Q115893240",
+            "osm_id": "way/98432101",
+            "wikipedia_title": "Apex_Industrial_Park",
+            "bbox": [-122.445, 37.765, -122.415, 37.785],
+            "centroid": [-122.43, 37.775],
+            "tags": {
+              "landuse": "industrial",
+              "industrial": "logistics",
+              "operator": "Apex Infrastructure Holdings",
+              "established": "2019"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 265.6,
+          "match_score": 0.894,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432103",
+            "name": "North Commercial Distribution Depot",
+            "source": "linked_osm_wikidata",
+            "entity_type": "logistics_center",
+            "wikidata_id": "Q115893242",
+            "osm_id": "way/98432103",
+            "wikipedia_title": null,
+            "bbox": [-122.428, 37.778, -122.418, 37.784],
+            "centroid": [-122.423, 37.781],
+            "tags": {
+              "building": "industrial",
+              "industrial": "warehouse"
+            }
+          },
+          "match_type": "centroid_proximity",
+          "distance_meters": 815.0,
+          "match_score": 0.274,
+          "confidence": "low"
+        }
+      ],
+      "primary_entity": "Consolidated Freight Terminal 4"
+    },
+    {
+      "candidate_id": "cand-85afd9a07e13",
+      "category": "new_construction",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-122.4191015625, 37.777265625],
+            [-122.4191015625, 37.779453124999996],
+            [-122.420859375, 37.779453124999996],
+            [-122.420859375, 37.777265625],
+            [-122.4191015625, 37.777265625]
+          ]
+        ]
+      },
+      "bbox": [
+        -122.420859375, 37.777265625, -122.4191015625, 37.779453124999996
+      ],
+      "centroid": [-122.41998046875, 37.778359374999994],
+      "area_m2": 17124.1,
+      "score": 0.475,
+      "confidence_band": "medium",
+      "detection_method": "multi_stage_ensemble_v1",
+      "contributing_signals": {
+        "spectral_magnitude": 0.924,
+        "embedding_distance": 0.038,
+        "ndbi_built_signal": 0.67,
+        "spatial_compactness": 0.326,
+        "quality_index": 0.95
+      },
+      "requires_more_evidence": false,
+      "false_positive_risk": "low",
+      "risk_reasons": [],
+      "matched_entities": [
+        {
+          "entity": {
+            "entity_id": "osm-way-98432103",
+            "name": "North Commercial Distribution Depot",
+            "source": "linked_osm_wikidata",
+            "entity_type": "logistics_center",
+            "wikidata_id": "Q115893242",
+            "osm_id": "way/98432103",
+            "wikipedia_title": null,
+            "bbox": [-122.428, 37.778, -122.418, 37.784],
+            "centroid": [-122.423, 37.781],
+            "tags": {
+              "building": "industrial",
+              "industrial": "warehouse"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 395.8,
+          "match_score": 0.842,
+          "confidence": "high"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432101",
+            "name": "Apex Logistics & Industrial Park",
+            "source": "linked_osm_wikidata",
+            "entity_type": "industrial_park",
+            "wikidata_id": "Q115893240",
+            "osm_id": "way/98432101",
+            "wikipedia_title": "Apex_Industrial_Park",
+            "bbox": [-122.445, 37.765, -122.415, 37.785],
+            "centroid": [-122.43, 37.775],
+            "tags": {
+              "landuse": "industrial",
+              "industrial": "logistics",
+              "operator": "Apex Infrastructure Holdings",
+              "established": "2019"
+            }
+          },
+          "match_type": "polygon_overlap",
+          "distance_meters": 956.6,
+          "match_score": 0.617,
+          "confidence": "medium"
+        },
+        {
+          "entity": {
+            "entity_id": "osm-way-98432102",
+            "name": "Consolidated Freight Terminal 4",
+            "source": "openstreetmap",
+            "entity_type": "warehouse",
+            "wikidata_id": "Q115893241",
+            "osm_id": "way/98432102",
+            "wikipedia_title": null,
+            "bbox": [-122.435, 37.77, -122.425, 37.778],
+            "centroid": [-122.43, 37.774],
+            "tags": {
+              "building": "warehouse",
+              "logistics": "freight_terminal",
+              "height": "14"
+            }
+          },
+          "match_type": "centroid_proximity",
+          "distance_meters": 1005.2,
+          "match_score": 0.198,
+          "confidence": "low"
+        }
+      ],
+      "primary_entity": "North Commercial Distribution Depot"
+    }
+  ],
+  "artifacts": {
+    "diff_raster_preview": "data/fixtures/artifacts/diff_area-apex-park-01_2016_2021.png",
+    "common_bounds": [-122.445, 37.765, -122.415, 37.785],
+    "common_dimensions": [256, 256]
+  }
+}
