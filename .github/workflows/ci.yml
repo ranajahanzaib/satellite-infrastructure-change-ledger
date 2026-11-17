@@ -6,28 +6,90 @@ on:
   pull_request:
     branches: [main]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
+jobs:
+  backend-go:
+    name: Go Backend Test & Build
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: services/api/go.mod
+
+      - name: Go Vet
+        run: |
+          cd services/api
+          go vet ./...
+
+      - name: Run Go Unit & Integration Tests
+        run: |
+          cd services/api
+          go test -v ./tests
+
+      - name: Build Go API Server Binary
+        run: |
+          cd services/api
+          go build -o bin/server ./cmd/server
+
+  processing-python:
+    name: Python Geospatial & ML Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+
+      - name: Install Python Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r services/processing/requirements.txt
+
+      - name: Run Python PyTest Suite
+        run: |
+          PYTHONPATH=services/processing pytest services/processing/tests/test_processing.py -v
+
+      - name: Verify Demo Generation Workflow
+        run: |
+          python scripts/generate_demo_rasters.py
+          PYTHONPATH=services/processing python -m src.cli detect \
+            --t1 data/samples/sentinel2_2016_baseline.tif \
+            --t2 data/samples/sentinel2_2021_expansion.tif \
+            --area-id area-apex-park-01 \
+            --out data/samples/demo_ci_result.json
+
+  frontend-react:
+    name: React Frontend Lint & Build (pnpm)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 10
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: "pnpm"
 
-      # Uncomment and adjust the steps below to match your project's setup
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
 
-      # - name: Install dependencies
-      #   run: npm ci
+      - name: TypeScript Lint Check
+        run: pnpm --dir apps/web lint
 
-      # - name: Lint
-      #   run: npm run lint
-
-      # - name: Run tests
-      #   run: npm test
-
-      # - name: Build
-      #   run: npm run build
+      - name: Build Production Bundle
+        run: pnpm --dir apps/web build
