@@ -3,8 +3,8 @@
   "private": true,
   "packageManager": "pnpm@10.6.3",
   "scripts": {
-    "dev": "pnpm --filter satellite-infrastructure-change-ledger-web dev",
-    "build": "pnpm --filter satellite-infrastructure-change-ledger-web build",
-    "lint": "pnpm --filter satellite-infrastructure-change-ledger-web lint"
+    "dev": "cd apps/web && vite",
+    "build": "cd apps/web && tsc && vite build",
+    "lint": "cd apps/web && tsc --noEmit"
   }
 }
