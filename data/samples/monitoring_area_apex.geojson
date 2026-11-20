@@ -5,18 +5,36 @@
     "name": "Apex Industrial Logistics Park",
     "category": "industrial_expansion",
     "description": "Multi-temporal monitoring of warehouse logistics infrastructure expansion (2016-2021)",
-    "center": [-122.43, 37.775],
+    "center": [
+      -122.43,
+      37.775
+    ],
     "area_km2": 4.82
   },
   "geometry": {
     "type": "Polygon",
     "coordinates": [
       [
-        [-122.445, 37.765],
-        [-122.415, 37.765],
-        [-122.415, 37.785],
-        [-122.445, 37.785],
-        [-122.445, 37.765]
+        [
+          -122.445,
+          37.765
+        ],
+        [
+          -122.415,
+          37.765
+        ],
+        [
+          -122.415,
+          37.785
+        ],
+        [
+          -122.445,
+          37.785
+        ],
+        [
+          -122.445,
+          37.765
+        ]
       ]
     ]
   }
