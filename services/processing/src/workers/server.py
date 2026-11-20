@@ -11,11 +11,25 @@ import sys
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from typing import Dict, Any
 
-from .pipeline import ProcessingPipeline
-from ..raster.geotiff import RasterIO
+try:
+    from .pipeline import ProcessingPipeline
+    from ..raster.geotiff import RasterIO
+except (ImportError, ValueError):
+    from src.workers.pipeline import ProcessingPipeline
+    from src.raster.geotiff import RasterIO
 
 
 pipeline = ProcessingPipeline()
+
+
+def resolve_path(p: str) -> str:
+    if os.path.exists(p):
+        return p
+    for parent in ("..", "../..", "../../..", "../../../.."):
+        cand = os.path.normpath(os.path.join(parent, p))
+        if os.path.exists(cand):
+            return cand
+    return p
 
 
 class ProcessingHandler(BaseHTTPRequestHandler):
@@ -54,7 +68,7 @@ class ProcessingHandler(BaseHTTPRequestHandler):
                 return
 
         if self.path == "/api/v1/processing/inspect":
-            filepath = payload.get("filepath")
+            filepath = resolve_path(payload.get("filepath", ""))
             if not filepath or not os.path.exists(filepath):
                 self._send_json(400, {"error": "Invalid or missing 'filepath'"})
                 return
@@ -65,8 +79,8 @@ class ProcessingHandler(BaseHTTPRequestHandler):
                 self._send_json(500, {"error": str(e)})
 
         elif self.path in ("/api/v1/processing/detect", "/api/v1/processing/compare"):
-            t1_path = payload.get("t1_path", "data/samples/sentinel2_2016_baseline.tif")
-            t2_path = payload.get("t2_path", "data/samples/sentinel2_2021_expansion.tif")
+            t1_path = resolve_path(payload.get("t1_path", "data/samples/sentinel2_2016_baseline.tif"))
+            t2_path = resolve_path(payload.get("t2_path", "data/samples/sentinel2_2021_expansion.tif"))
             area_id = payload.get("area_id", "area-apex-park-01")
             t1_date = payload.get("t1_date", "2016-08-15")
             t2_date = payload.get("t2_date", "2021-07-10")

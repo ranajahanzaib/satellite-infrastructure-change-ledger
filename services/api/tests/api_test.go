@@ -207,3 +207,31 @@ func TestExportFormats(t *testing.T) {
 		t.Fatalf("expected 200, got %d", rec.Code)
 	}
 }
+
+func TestImageryPreviewAndSTAC(t *testing.T) {
+	srv, _ := setupTestServer()
+
+	// Test 2016 preview endpoint
+	req := httptest.NewRequest(http.MethodGet, "/api/v1/imagery/obs-s2-2016-08-15/preview", nil)
+	rec := httptest.NewRecorder()
+	srv.Router().ServeHTTP(rec, req)
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("expected 200 for 2016 preview, got %d", rec.Code)
+	}
+	if rec.Header().Get("Content-Type") != "image/png" {
+		t.Errorf("expected image/png, got %s", rec.Header().Get("Content-Type"))
+	}
+
+	// Test 2021 preview endpoint
+	req = httptest.NewRequest(http.MethodGet, "/api/v1/imagery/obs-s2-2021-07-10/preview", nil)
+	rec = httptest.NewRecorder()
+	srv.Router().ServeHTTP(rec, req)
+
+	if rec.Code != http.StatusOK {
+		t.Fatalf("expected 200 for 2021 preview, got %d", rec.Code)
+	}
+	if rec.Header().Get("Content-Type") != "image/png" {
+		t.Errorf("expected image/png, got %s", rec.Header().Get("Content-Type"))
+	}
+}

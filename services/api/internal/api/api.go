@@ -6,6 +6,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"time"
@@ -547,13 +548,29 @@ func (s *Server) handleGetImagery(w http.ResponseWriter, r *http.Request) {
 	s.jsonResponse(w, http.StatusOK, obs)
 }
 
+func resolveExistingPath(relPath string) string {
+	candidates := []string{
+		relPath,
+		filepath.Join("..", relPath),
+		filepath.Join("..", "..", relPath),
+		filepath.Join("..", "..", "..", relPath),
+		filepath.Join("..", "..", "..", "..", relPath),
+	}
+	for _, c := range candidates {
+		if _, err := os.Stat(c); err == nil {
+			return c
+		}
+	}
+	return relPath
+}
+
 func (s *Server) handleGetImageryPreview(w http.ResponseWriter, r *http.Request) {
 	id := chi.URLParam(r, "id")
 	var path string
 	if strings.Contains(id, "2016") {
-		path = "data/samples/preview_2016_baseline.png"
+		path = resolveExistingPath("data/samples/preview_2016_baseline.png")
 	} else {
-		path = "data/samples/preview_2021_expansion.png"
+		path = resolveExistingPath("data/samples/preview_2021_expansion.png")
 	}
 
 	if data, err := os.ReadFile(path); err == nil {
