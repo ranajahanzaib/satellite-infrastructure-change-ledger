@@ -31,8 +31,15 @@ export const ReviewQueueView: React.FC = () => {
     try {
       const res = await api.listCandidates();
       setCandidates(res.data);
-      if (res.data.length > 0 && !activeCandidate) {
-        setActiveCandidate(res.data[0]);
+      if (res.data.length > 0) {
+        if (!activeCandidate) {
+          setActiveCandidate(res.data[0]);
+        } else {
+          const updated = res.data.find((c) => c.id === activeCandidate.id);
+          if (updated) {
+            setActiveCandidate(updated);
+          }
+        }
       }
     } catch (err) {
       console.error(err);

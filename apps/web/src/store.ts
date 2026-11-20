@@ -58,9 +58,25 @@ interface AppState {
   clearNotification: () => void;
 }
 
+const getInitialTab = (): NavTab => {
+  if (typeof window !== "undefined") {
+    const params = new URLSearchParams(window.location.search);
+    const tab = params.get("tab") as NavTab;
+    if (tab) return tab;
+  }
+  return "overview";
+};
+
 export const useAppStore = create<AppState>((set) => ({
-  activeTab: "overview",
-  setActiveTab: (tab) => set({ activeTab: tab }),
+  activeTab: getInitialTab(),
+  setActiveTab: (tab) => {
+    if (typeof window !== "undefined") {
+      const url = new URL(window.location.href);
+      url.searchParams.set("tab", tab);
+      window.history.pushState({}, "", url.toString());
+    }
+    set({ activeTab: tab });
+  },
 
   selectedAreaId: "area-apex-park-01",
   setSelectedAreaId: (id) => set({ selectedAreaId: id }),
